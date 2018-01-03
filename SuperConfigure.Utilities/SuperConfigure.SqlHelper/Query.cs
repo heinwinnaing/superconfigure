@@ -10,15 +10,19 @@ namespace SuperConfigure.SqlHelper
 {
     public class Query
     {
-        static SqlConnection connection;
-        public Query(string ConnectionString)
+        private SqlConnection _Connection = null;
+        public SqlConnection Connection
+        {
+            get { return _Connection; }
+            set { _Connection = value; }
+        }
+        
+        public Query()
         {
             try
             {
-                if (string.IsNullOrEmpty(ConnectionString))
+                if (Connection == null)
                     throw new Exception("error: invalid connection string!");
-
-                connection = new SqlConnection(ConnectionString);
             }
             catch(Exception ex)
             {
@@ -37,10 +41,10 @@ namespace SuperConfigure.SqlHelper
             SqlTransaction trans = null;
             try
             {
-                if (connection.State == ConnectionState.Closed)
-                    connection.Open();
+                if (Connection.State == ConnectionState.Closed)
+                    Connection.Open();
 
-                trans = connection.BeginTransaction();
+                trans = Connection.BeginTransaction();
 
                 if (varilables != null)
                 {
@@ -50,7 +54,7 @@ namespace SuperConfigure.SqlHelper
                     }
                 }
 
-                using (SqlCommand cmd = new SqlCommand(query, connection, trans))
+                using (SqlCommand cmd = new SqlCommand(query, Connection, trans))
                 {
                     cmd.CommandType = commandType;
                     cmd.CommandTimeout = 60;
@@ -66,8 +70,8 @@ namespace SuperConfigure.SqlHelper
             }
             finally
             {
-                if (connection.State == ConnectionState.Open)
-                    connection.Close();
+                if (Connection.State == ConnectionState.Open)
+                    Connection.Close();
             }
         }
 
@@ -84,10 +88,10 @@ namespace SuperConfigure.SqlHelper
             DataSet ds = new DataSet();
             try
             {
-                if (connection.State == ConnectionState.Closed)
-                    connection.Open();
+                if (Connection.State == ConnectionState.Closed)
+                    Connection.Open();
 
-                trans = connection.BeginTransaction();
+                trans = Connection.BeginTransaction();
 
                 if (varilables != null)
                 {
@@ -97,7 +101,7 @@ namespace SuperConfigure.SqlHelper
                     }
                 }
 
-                using (SqlCommand cmd = new SqlCommand(query, connection, trans))
+                using (SqlCommand cmd = new SqlCommand(query, Connection, trans))
                 {
                     cmd.CommandType = CommandType.Text;
                     cmd.CommandTimeout = 60;
@@ -120,8 +124,8 @@ namespace SuperConfigure.SqlHelper
             }
             finally
             {
-                if (connection.State == ConnectionState.Open)
-                    connection.Close();
+                if (Connection.State == ConnectionState.Open)
+                    Connection.Close();
             }
         }
 
@@ -136,10 +140,10 @@ namespace SuperConfigure.SqlHelper
             SqlTransaction trans = null;bool isSuccess = false;
             try
             {
-                if (connection.State == ConnectionState.Closed)
-                    connection.Open();
+                if (Connection.State == ConnectionState.Closed)
+                    Connection.Open();
 
-                trans = connection.BeginTransaction();
+                trans = Connection.BeginTransaction();
 
                 if (varilables != null)
                 {
@@ -149,7 +153,7 @@ namespace SuperConfigure.SqlHelper
                     }
                 }
 
-                using (SqlCommand cmd = new SqlCommand(query, connection, trans))
+                using (SqlCommand cmd = new SqlCommand(query, Connection, trans))
                 {
                     cmd.CommandType = commandType;
                     cmd.CommandTimeout = 60;
@@ -166,8 +170,8 @@ namespace SuperConfigure.SqlHelper
             }
             finally
             {
-                if (connection.State == ConnectionState.Open)
-                    connection.Close();
+                if (Connection.State == ConnectionState.Open)
+                    Connection.Close();
             }
             return isSuccess;
         }

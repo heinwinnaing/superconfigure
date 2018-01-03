@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperConfigure.SqlHelper", "SuperConfigure.SqlHelper\SuperConfigure.SqlHelper.csproj", "{173FE5AD-7619-4C6B-820C-67FA2450B135}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperConfigure.Test", "SuperConfigure.Test\SuperConfigure.Test.csproj", "{C33A52CA-1478-44DD-B437-21A961338941}"

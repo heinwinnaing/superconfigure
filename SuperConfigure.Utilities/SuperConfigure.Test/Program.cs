@@ -10,19 +10,19 @@ namespace SuperConfigure.Test
 {
     class Program
     {
-        static Query command = new Query("Server=USER\\MSSQL2012;Database=shwecrm;User Id=sa;Password=sa;");
+        static Query command = new Query();
         static void Main(string[] args)
         {
             try
             {
-                DataTable dataTable = command.ExecuteDataTable("SELECT * FROM [shweaccount]", CommandType.Text, null);
-                if (dataTable != null)
+                command.Connection = new System.Data.SqlClient.SqlConnection("Server=USER\\MSSQL2012;Database=shwecrm;User Id=sa;Password=sa;");
+                if (command.ExecuteBoolen("SELECT * FROM [shweaccount]", CommandType.Text, null))
                 {
-                    foreach (DataRow dr in dataTable.Rows)
-                    {
-                        Console.WriteLine(dr["username"].ToString());
-                        Console.WriteLine();
-                    }
+                    Console.WriteLine("success");
+                }
+                else
+                {
+                    throw new Exception("error: something went wrong!");
                 }
             }
             catch (Exception ex)
