@@ -32,7 +32,7 @@ namespace SuperConfigure.SqlHelper
         /// <param name="query"></param>
         /// <param name="commandType"></param>
         /// <param name="varilables"></param>
-        public static void ExecuteNonQuery(string query, CommandType commandType, Dictionary<string, object> varilables)
+        public void ExecuteNonQuery(string query, CommandType commandType, Dictionary<string, object> varilables)
         {
             SqlTransaction trans = null;
             try
@@ -78,7 +78,7 @@ namespace SuperConfigure.SqlHelper
         /// <param name="commandType"></param>
         /// <param name="varilables"></param>
         /// <returns></returns>
-        public static DataTable ExecuteDataTable(string query, CommandType commandType, Dictionary<string, object> varilables)
+        public DataTable ExecuteDataTable(string query, CommandType commandType, Dictionary<string, object> varilables)
         {
             SqlTransaction trans = null;
             DataSet ds = new DataSet();
@@ -131,7 +131,7 @@ namespace SuperConfigure.SqlHelper
         /// <param name="query"></param>
         /// <param name="commandType"></param>
         /// <param name="varilables"></param>
-        public static bool ExecuteBoolen(string query, CommandType commandType, Dictionary<string, object> varilables)
+        public bool ExecuteBoolen(string query, CommandType commandType, Dictionary<string, object> varilables)
         {
             SqlTransaction trans = null;bool isSuccess = false;
             try

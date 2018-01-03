@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SuperConfigure.SqlHelper;
 
 namespace SuperConfigure.Test
 {
@@ -12,7 +13,6 @@ namespace SuperConfigure.Test
         {
             try
             {
- 
             }
             catch(Exception ex) {
                 throw ex;

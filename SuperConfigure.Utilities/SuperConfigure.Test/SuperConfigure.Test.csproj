@@ -47,6 +47,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SuperConfigure.Common\SuperConfigure.Common.csproj">
+      <Project>{b7c0f40c-9e20-403b-b7f7-b6a6dded6d41}</Project>
+      <Name>SuperConfigure.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SuperConfigure.SqlHelper\SuperConfigure.SqlHelper.csproj">
+      <Project>{173fe5ad-7619-4c6b-820c-67fa2450b135}</Project>
+      <Name>SuperConfigure.SqlHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
