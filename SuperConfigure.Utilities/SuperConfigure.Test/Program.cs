@@ -15,7 +15,6 @@ namespace SuperConfigure.Test
         {
             try
             {
-                Console.WriteLine("starting ...");
                 command.Connection = new System.Data.SqlClient.SqlConnection("Server=USER\\MSSQL2012;Database=shwecrm;User Id=sa;Password=sa;");
                 if (command.ExecuteBoolen("SELECT * FROM [shweaccount]", CommandType.Text, null))
                 {
